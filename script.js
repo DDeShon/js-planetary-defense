@@ -7,7 +7,7 @@ class Planet {
 
   draw(context) {
     context.beginPath();
-    context.ard(this.x, this.y, this.radius, 0, Math.PI * 2);
+    context.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
     context.fill();
   }
 }
@@ -19,5 +19,5 @@ window.addEventListener("load", function () {
   canvas.height = 800;
 
   const planet = new Planet();
-  planet.draw();
+  planet.draw(ctx);
 });
