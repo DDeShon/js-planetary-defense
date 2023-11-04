@@ -28,7 +28,6 @@ class Game {
     };
 
     window.addEventListener("mousemove", (e) => {
-      console.log(e);
       this.mouse.x = e.offsetX;
       this.mouse.y = e.offsetY;
     });
