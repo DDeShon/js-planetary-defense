@@ -22,12 +22,23 @@ class Game {
     this.height = this.canvas.height;
     this.planet = new Planet(this);
 
+    this.mouse = {
+      x: 0,
+      y: 0,
+    };
+
     window.addEventListener("mousemove", (e) => {
       console.log(e);
+      this.mouse.x = e.offsetX;
+      this.mouse.y = e.offsetY;
     });
   }
   render(context) {
     this.planet.draw(context);
+    context.beginPath();
+    context.moveTo(this.planet.x, this.planet.y);
+    context.lineTo(this.mouse.x, this.mouse.y);
+    context.stroke();
   }
 }
 
@@ -40,5 +51,12 @@ window.addEventListener("load", function () {
   ctx.lineWidth = 2;
 
   const game = new Game(canvas);
-  game.render(ctx);
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    game.render(ctx);
+    window.requestAnimationFrame(animate);
+  }
+
+  this.requestAnimationFrame(animate);
 });
