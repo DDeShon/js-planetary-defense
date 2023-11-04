@@ -21,6 +21,10 @@ class Game {
     this.width = this.canvas.width;
     this.height = this.canvas.height;
     this.planet = new Planet(this);
+
+    window.addEventListener("mousemove", (e) => {
+      console.log(e);
+    });
   }
   render(context) {
     this.planet.draw(context);
