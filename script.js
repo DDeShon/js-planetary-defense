@@ -15,6 +15,12 @@ class Planet {
   }
 }
 
+class Player {
+  constructor(game) {
+    this.game = game;
+  }
+}
+
 class Game {
   constructor(canvas) {
     this.canvas = canvas;
