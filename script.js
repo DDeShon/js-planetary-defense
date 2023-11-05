@@ -24,11 +24,11 @@ class Player {
   }
   draw(context) {
     context.beginPath();
-    context.arc(this.x, this.y, this.radius, 0, Math.Pi * 2);
+    context.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
     context.stroke();
   }
   update() {
-    this.x = this.game.mouse.x;
+    this.x++;
   }
 }
 
