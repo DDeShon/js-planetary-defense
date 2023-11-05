@@ -18,6 +18,14 @@ class Planet {
 class Player {
   constructor(game) {
     this.game = game;
+    this.x = this.game.width * 0.5;
+    this.y = this.game.height * 0.5;
+    this.radius = 40;
+  }
+  draw(context) {
+    context.beginPath();
+    context.arc(this.x, this.y, this.radius, 0, Math.Pi * 2);
+    context.stroke();
   }
 }
 
@@ -27,6 +35,7 @@ class Game {
     this.width = this.canvas.width;
     this.height = this.canvas.height;
     this.planet = new Planet(this);
+    this.player = new Player(this);
 
     this.mouse = {
       x: 0,
