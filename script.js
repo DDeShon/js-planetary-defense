@@ -32,7 +32,8 @@ class Player {
   }
   update() {
     this.aim = this.game.calcAim(this.game.mouse, this.game.planet);
-    this.x = this.game.planet.x + 50 * this.aim[0];
+    this.x = this.game.planet.x + this.game.planet.radius * this.aim[0];
+    this.y = this.game.planet.y + this.game.planet.radius * this.aim[1];
   }
 }
 
