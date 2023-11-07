@@ -22,6 +22,7 @@ class Player {
     this.y = this.game.height * 0.5;
     this.radius = 40;
     this.image = document.getElementById("player");
+    this.aim;
   }
   draw(context) {
     context.drawImage(this.image, this.x - this.radius, this.y - this.radius);
@@ -29,7 +30,10 @@ class Player {
     context.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
     context.stroke();
   }
-  update() {}
+  update() {
+    this.aim = this.game.calcAim(this.game.mouse, this.game.planet);
+    this.x = this.game.planet.x + 50 * this.aim[0];
+  }
 }
 
 class Game {
