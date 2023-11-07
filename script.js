@@ -50,6 +50,7 @@ class Game {
       this.mouse.y = e.offsetY;
     });
   }
+
   render(context) {
     this.planet.draw(context);
     this.player.draw(context);
@@ -58,6 +59,15 @@ class Game {
     context.moveTo(this.planet.x, this.planet.y);
     context.lineTo(this.mouse.x, this.mouse.y);
     context.stroke();
+  }
+
+  calcAim(a, b) {
+    const distX = a.x - b.x;
+    const distY = a.y - b.y;
+    const distance = Math.hypot(distX, distY);
+    const aimX = distX / distance;
+    const aimY = distY / distance;
+    return [aimX, aimY, distX, distY];
   }
 }
 
