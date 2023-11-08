@@ -65,9 +65,6 @@ class Game {
     this.player.draw(context);
     this.player.update();
     context.beginPath();
-    context.moveTo(this.planet.x, this.planet.y);
-    context.lineTo(this.mouse.x, this.mouse.y);
-    context.stroke();
   }
 
   calcAim(a, b) {
