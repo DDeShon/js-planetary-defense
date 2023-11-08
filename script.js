@@ -28,6 +28,7 @@ class Player {
   draw(context) {
     context.save();
     context.translate(this.x, this.y);
+    context.rotate(this.angle);
     context.drawImage(this.image, -this.radius, -this.radius);
     context.beginPath();
     context.arc(0, 0, this.radius, 0, Math.PI * 2);
@@ -35,13 +36,14 @@ class Player {
     context.restore();
   }
   update() {
-    this.aim = this.game.calcAim(this.game.mouse, this.game.planet);
+    this.aim = this.game.calcAim(this.game.planet, this.game.mouse);
     this.x =
       this.game.planet.x +
       (this.game.planet.radius + this.radius) * this.aim[0];
     this.y =
       this.game.planet.y +
       (this.game.planet.radius + this.radius) * this.aim[1];
+    this.angle = Math.atan2(this.aim[3], this.aim[2]);
   }
 }
 
@@ -75,8 +77,8 @@ class Game {
     const distX = a.x - b.x;
     const distY = a.y - b.y;
     const distance = Math.hypot(distX, distY);
-    const aimX = distX / distance;
-    const aimY = distY / distance;
+    const aimX = (distX / distance) * -1;
+    const aimY = (distY / distance) * -1;
     return [aimX, aimY, distX, distY];
   }
 }
