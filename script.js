@@ -54,6 +54,10 @@ class Player {
   }
 }
 
+class Projectile {
+  constructor() {}
+}
+
 class Game {
   constructor(canvas) {
     this.canvas = canvas;
