@@ -56,6 +56,9 @@ class Player {
 
   shoot() {
     const projectile = this.game.getProjectile();
+    if (projectile) {
+      projectile.start();
+    }
   }
 }
 
