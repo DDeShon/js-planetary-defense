@@ -93,6 +93,10 @@ class Game {
     this.player = new Player(this);
     this.debug = true;
 
+    this.projectilePool = [];
+    this.numberOfProjectiles = 20;
+    this.createProjectilePool();
+
     this.mouse = {
       x: 0,
       y: 0,
@@ -124,6 +128,12 @@ class Game {
     const aimX = (distX / distance) * -1;
     const aimY = (distY / distance) * -1;
     return [aimX, aimY, distX, distY];
+  }
+
+  createProjectilePool() {
+    for (let i = 0; i < this.numberOfProjectiles; i++) {
+      this.projectilePool.push(new Projectile(this));
+    }
   }
 }
 
