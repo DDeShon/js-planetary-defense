@@ -107,6 +107,11 @@ class Game {
       this.mouse.x = e.offsetX;
       this.mouse.y = e.offsetY;
     });
+    window.addEventListener("mousedown", (e) => {
+      this.mouse.x = e.offsetX;
+      this.mouse.y = e.offsetY;
+      this.player.shoot();
+    });
     window.addEventListener("keyup", (e) => {
       if (e.key === "d") {
         this.debug = !this.debug;
