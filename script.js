@@ -60,6 +60,10 @@ class Projectile {
     this.x;
     this.y;
     this.radius = 20;
+    this.free = true;
+  }
+  start() {
+    this.free = false;
   }
 }
 
