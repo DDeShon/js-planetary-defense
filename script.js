@@ -57,7 +57,7 @@ class Player {
   shoot() {
     const projectile = this.game.getProjectile();
     if (projectile) {
-      projectile.start();
+      projectile.start(100, 100);
     }
   }
 }
@@ -67,21 +67,27 @@ class Projectile {
     this.game = game;
     this.x;
     this.y;
-    this.radius = 20;
+    this.radius = 5;
     this.speedX = 1;
     this.speedY = 1;
     this.free = true;
   }
-  start() {
+  start(x, y) {
     this.free = false;
+    this.x = x;
+    this.y = y;
   }
   reset() {
     this.free = true;
   }
   draw(context) {
     if (!this.free) {
+      context.save();
       context.beginPath();
       context.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+      context.fillStyle = "white";
+      context.fill();
+      context.restore();
     }
   }
   update() {
@@ -131,7 +137,10 @@ class Game {
     this.planet.draw(context);
     this.player.draw(context);
     this.player.update();
-    context.beginPath();
+    this.projectilePool.forEach((projectile) => {
+      projectile.draw(context);
+      projectile.update();
+    });
   }
 
   calcAim(a, b) {
