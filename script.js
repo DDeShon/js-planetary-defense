@@ -57,7 +57,7 @@ class Player {
   shoot() {
     const projectile = this.game.getProjectile();
     if (projectile) {
-      projectile.start(100, 100);
+      projectile.start(this.x, this.y);
     }
   }
 }
