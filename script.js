@@ -57,7 +57,7 @@ class Player {
   shoot() {
     const projectile = this.game.getProjectile();
     if (projectile) {
-      projectile.start(this.x, this.y);
+      projectile.start(this.x, this.y, -1, 1);
     }
   }
 }
@@ -72,10 +72,12 @@ class Projectile {
     this.speedY = 1;
     this.free = true;
   }
-  start(x, y) {
+  start(x, y, speedX, speedY) {
     this.free = false;
     this.x = x;
     this.y = y;
+    this.speedX = speedX;
+    this.speedY = speedY;
   }
   reset() {
     this.free = true;
