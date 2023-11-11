@@ -57,7 +57,12 @@ class Player {
   shoot() {
     const projectile = this.game.getProjectile();
     if (projectile) {
-      projectile.start(this.x, this.y, -1, 1);
+      projectile.start(
+        this.x + this.radius * this.aim[0],
+        this.y + this.radius * this.aim[1],
+        this.aim[0],
+        this.aim[1]
+      );
     }
   }
 }
@@ -70,14 +75,15 @@ class Projectile {
     this.radius = 5;
     this.speedX = 1;
     this.speedY = 1;
+    this.speedModifier = 2;
     this.free = true;
   }
   start(x, y, speedX, speedY) {
     this.free = false;
     this.x = x;
     this.y = y;
-    this.speedX = speedX;
-    this.speedY = speedY;
+    this.speedX = speedX * this.speedModifier;
+    this.speedY = speedY * this.speedModifier;
   }
   reset() {
     this.free = true;
@@ -119,7 +125,7 @@ class Game {
     this.debug = true;
 
     this.projectilePool = [];
-    this.numberOfProjectiles = 20;
+    this.numberOfProjectiles = 30;
     this.createProjectilePool();
 
     this.mouse = {
