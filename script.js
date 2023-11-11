@@ -75,7 +75,7 @@ class Projectile {
     this.radius = 5;
     this.speedX = 1;
     this.speedY = 1;
-    this.speedModifier = 2;
+    this.speedModifier = 4;
     this.free = true;
   }
   start(x, y, speedX, speedY) {
