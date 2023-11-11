@@ -93,7 +93,7 @@ class Projectile {
       context.save();
       context.beginPath();
       context.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-      context.fillStyle = "white";
+      context.fillStyle = "cyan";
       context.fill();
       context.restore();
     }
