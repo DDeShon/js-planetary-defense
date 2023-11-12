@@ -160,6 +160,10 @@ class Game {
     this.numberOfProjectiles = 30;
     this.createProjectilePool();
 
+    this.enemyPool = [];
+    this.numberOfEnemies = 20;
+    this.createEnemyPool();
+
     this.mouse = {
       x: 0,
       y: 0,
