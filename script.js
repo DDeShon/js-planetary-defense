@@ -218,6 +218,20 @@ class Game {
       }
     }
   }
+
+  createEnemyPool() {
+    for (let i = 0; i < this.numberOfEnemies; i++) {
+      this.enemyPool.push(new Enemy(this));
+    }
+  }
+
+  getEnemy() {
+    for (let i = 0; i < this.enemyPool.length; i++) {
+      if (this.enemyPool[i].free) {
+        return this.enemyPool[i];
+      }
+    }
+  }
 }
 
 window.addEventListener("load", function () {
