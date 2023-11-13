@@ -163,6 +163,11 @@ class Game {
     this.enemyPool = [];
     this.numberOfEnemies = 20;
     this.createEnemyPool();
+    this.enemyPool[0].start();
+    this.enemyPool[1].start();
+    this.enemyPool[2].start();
+    this.enemyPool[3].start();
+    this.enemyPool[4].start();
 
     this.mouse = {
       x: 0,
@@ -193,6 +198,10 @@ class Game {
     this.projectilePool.forEach((projectile) => {
       projectile.draw(context);
       projectile.update();
+    });
+    this.enemyPool.forEach((enemy) => {
+      enemy.draw(context);
+      enemy.update();
     });
   }
 
