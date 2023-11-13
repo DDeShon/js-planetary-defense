@@ -131,9 +131,11 @@ class Enemy {
     this.free = false;
     if (Math.random() < 0.5) {
       this.x = Math.random() * this.game.width;
-      this.y = Math.random() < 0.5 ? 0 : this.game.height;
+      this.y =
+        Math.random() < 0.5 ? -this.radius : this.game.height + this.radius;
     } else {
-      this.x = Math.random() < 0.5 ? 0 : this.game.width;
+      this.x =
+        Math.random() < 0.5 ? -this.radius : this.game.width + this.radius;
       this.y = Math.random() * this.game.height;
     }
     const aim = this.game.calcAim(this, this.game.planet);
@@ -164,6 +166,14 @@ class Enemy {
       if (this.game.checkCollision(this, this.game.player)) {
         this.reset();
       }
+
+      // check collision between enemy and projectile
+      this.game.projectilePool.forEach((projectile) => {
+        if (!projectile.free && this.game.checkCollision(this, projectile)) {
+          projectile.reset();
+          this.reset();
+        }
+      });
     }
   }
 }
