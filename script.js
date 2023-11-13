@@ -196,7 +196,7 @@ class Game {
     this.createEnemyPool();
     this.enemyPool[0].start();
     this.enemyTimer = 0;
-    this.enemyInterval = 1000;
+    this.enemyInterval = 500;
 
     this.mouse = {
       x: 0,
