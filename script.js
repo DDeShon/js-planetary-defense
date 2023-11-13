@@ -131,9 +131,9 @@ class Enemy {
     this.free = false;
     if (Math.random() < 0.5) {
       this.x = Math.random() * this.game.width;
-      this.y = 0;
+      this.y = Math.random() < 0.5 ? 0 : this.game.height;
     } else {
-      this.x = 0;
+      this.x = Math.random() < 0.5 ? 0 : this.game.width;
       this.y = Math.random() * this.game.height;
     }
     const aim = this.game.calcAim(this, this.game.planet);
