@@ -180,10 +180,8 @@ class Game {
     this.numberOfEnemies = 20;
     this.createEnemyPool();
     this.enemyPool[0].start();
-    this.enemyPool[1].start();
-    this.enemyPool[2].start();
-    this.enemyPool[3].start();
-    this.enemyPool[4].start();
+    this.enemyTimer = 0;
+    this.enemyInterval = 1000;
 
     this.mouse = {
       x: 0,
@@ -207,7 +205,7 @@ class Game {
     });
   }
 
-  render(context) {
+  render(context, deltaTime) {
     this.planet.draw(context);
     this.player.draw(context);
     this.player.update();
@@ -219,6 +217,17 @@ class Game {
       enemy.draw(context);
       enemy.update();
     });
+
+    // periodically activate an enemy
+    if (this.enemyTimer < this.enemyInterval) {
+      this.enemyTimer += deltaTime;
+    } else {
+      this.enemyTimer = 0;
+      const enemy = this.getEnemy();
+      if (enemy) {
+        enemy.start();
+      }
+    }
   }
 
   calcAim(a, b) {
