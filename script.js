@@ -149,6 +149,16 @@ class Enemy {
     if (!this.free) {
       this.x += this.speedX;
       this.y += this.speedY;
+
+      // check collision between enemy and planet
+      if (this.game.checkCollision(this, this.game.planet)) {
+        this.reset();
+      }
+
+      // check collision between enemy and player
+      if (this.game.checkCollision(this, this.game.player)) {
+        this.reset();
+      }
     }
   }
 }
@@ -225,6 +235,7 @@ class Game {
     const distY = a.y - b.y;
     const distance = Math.hypot(distX, distY);
     const sumOfRadii = a.radius + b.radius;
+    return distance < sumOfRadii;
   }
 
   createProjectilePool() {
