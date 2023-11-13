@@ -220,6 +220,13 @@ class Game {
     return [aimX, aimY, distX, distY];
   }
 
+  checkCollision(a, b) {
+    const distX = a.x - b.x;
+    const distY = a.y - b.y;
+    const distance = Math.hypot(distX, distY);
+    const sumOfRadii = a.radius + b.radius;
+  }
+
   createProjectilePool() {
     for (let i = 0; i < this.numberOfProjectiles; i++) {
       this.projectilePool.push(new Projectile(this));
