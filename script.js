@@ -178,6 +178,10 @@ class Enemy {
   }
 }
 
+class Asteroid extends Enemy {
+  constructor(game) {}
+}
+
 class Game {
   constructor(canvas) {
     this.canvas = canvas;
