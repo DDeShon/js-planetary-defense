@@ -147,7 +147,17 @@ class Enemy {
   }
   draw(context) {
     if (!this.free) {
-      context.drawImage(this.image, this.x, this.y);
+      context.drawImage(
+        this.image,
+        0,
+        0,
+        this.width,
+        this.height,
+        this.x - this.radius,
+        this.y - this.radius,
+        this.width,
+        this.height
+      );
       context.beginPath();
       context.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
       context.stroke();
