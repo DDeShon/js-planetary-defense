@@ -147,6 +147,7 @@ class Enemy {
   }
   draw(context) {
     if (!this.free) {
+      context.drawImage(this.image, this.x, this.y);
       context.beginPath();
       context.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
       context.stroke();
@@ -285,7 +286,7 @@ class Game {
 
   createEnemyPool() {
     for (let i = 0; i < this.numberOfEnemies; i++) {
-      this.enemyPool.push(new Enemy(this));
+      this.enemyPool.push(new Asteroid(this));
     }
   }
 
