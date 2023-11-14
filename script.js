@@ -179,7 +179,10 @@ class Enemy {
 }
 
 class Asteroid extends Enemy {
-  constructor(game) {}
+  constructor(game) {
+    super(game);
+    this.image = document.getElementById("asteroid");
+  }
 }
 
 class Game {
