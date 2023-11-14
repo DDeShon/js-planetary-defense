@@ -158,9 +158,11 @@ class Enemy {
         this.width,
         this.height
       );
-      context.beginPath();
-      context.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-      context.stroke();
+      if (this.game.debug) {
+        context.beginPath();
+        context.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        context.stroke();
+      }
     }
   }
   update() {
@@ -214,7 +216,7 @@ class Game {
     this.createEnemyPool();
     this.enemyPool[0].start();
     this.enemyTimer = 0;
-    this.enemyInterval = 500;
+    this.enemyInterval = 1700;
 
     this.mouse = {
       x: 0,
