@@ -150,7 +150,7 @@ class Enemy {
       context.drawImage(
         this.image,
         0 * this.width,
-        0 * this.height,
+        this.frameY * this.height,
         this.width,
         this.height,
         this.x - this.radius,
@@ -195,6 +195,7 @@ class Asteroid extends Enemy {
   constructor(game) {
     super(game);
     this.image = document.getElementById("asteroid");
+    this.frameY = Math.floor(Math.random() * 4);
   }
 }
 
