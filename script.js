@@ -168,6 +168,7 @@ class Enemy {
         context.beginPath();
         context.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
         context.stroke();
+        context.fillText(this.lives, this.x, this.y);
       }
     }
   }
@@ -334,7 +335,11 @@ window.addEventListener("load", function () {
   canvas.width = 800;
   canvas.height = 800;
   ctx.strokeStyle = "white";
+  ctx.fillStyle = "white";
   ctx.lineWidth = 2;
+  ctx.font = "50px Helvetica";
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
 
   const game = new Game(canvas);
 
