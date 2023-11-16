@@ -153,7 +153,7 @@ class Enemy {
     if (!this.free) {
       context.drawImage(
         this.image,
-        0 * this.width,
+        this.frameX * this.width,
         this.frameY * this.height,
         this.width,
         this.height,
@@ -202,6 +202,7 @@ class Asteroid extends Enemy {
   constructor(game) {
     super(game);
     this.image = document.getElementById("asteroid");
+    this.frameX = 0;
     this.frameY = Math.floor(Math.random() * 4);
     this.lives = 5;
   }
