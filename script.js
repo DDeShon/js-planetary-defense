@@ -129,6 +129,7 @@ class Enemy {
   }
   start() {
     this.free = false;
+    // this.frameY = Math.floor(Math.random() * 4);
     if (Math.random() < 0.5) {
       this.x = Math.random() * this.game.width;
       this.y =
@@ -144,6 +145,9 @@ class Enemy {
   }
   reset() {
     this.free = true;
+  }
+  hit(damage) {
+    this.lives -= damage;
   }
   draw(context) {
     if (!this.free) {
@@ -184,9 +188,12 @@ class Enemy {
       this.game.projectilePool.forEach((projectile) => {
         if (!projectile.free && this.game.checkCollision(this, projectile)) {
           projectile.reset();
-          this.reset();
+          this.hit(1);
         }
       });
+      if (this.lives < 1) {
+        this.frameX++;
+      }
     }
   }
 }
@@ -196,6 +203,7 @@ class Asteroid extends Enemy {
     super(game);
     this.image = document.getElementById("asteroid");
     this.frameY = Math.floor(Math.random() * 4);
+    this.lives = 5;
   }
 }
 
