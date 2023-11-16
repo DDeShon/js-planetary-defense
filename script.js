@@ -194,7 +194,9 @@ class Enemy {
           this.hit(1);
         }
       });
-      if (this.lives < 1) {
+
+      // sprite animation
+      if (this.lives < 1 && this.game.spriteUpdate) {
         this.frameX++;
       }
       if (this.frameX > this.maxFrame) {
@@ -235,6 +237,10 @@ class Game {
     this.enemyPool[0].start();
     this.enemyTimer = 0;
     this.enemyInterval = 1700;
+
+    this.spriteUpdate = false;
+    this.spriteTimer = 0;
+    this.spriteInterval = 150;
 
     this.mouse = {
       x: 0,
@@ -280,6 +286,15 @@ class Game {
       if (enemy) {
         enemy.start();
       }
+    }
+
+    // periodically update sprites
+    if (this.spriteTimer < this.spriteInterval) {
+      this.spriteTimer += deltaTime;
+      this.spriteUpdate = false;
+    } else {
+      this.spriteTimer = 0;
+      this.spriteUpdate = true;
     }
   }
 
