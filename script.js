@@ -129,6 +129,7 @@ class Enemy {
   }
   start() {
     this.free = false;
+    this.frameX = 0;
     // this.frameY = Math.floor(Math.random() * 4);
     if (Math.random() < 0.5) {
       this.x = Math.random() * this.game.width;
@@ -194,6 +195,9 @@ class Enemy {
       if (this.lives < 1) {
         this.frameX++;
       }
+      if (this.frameX > this.maxFrame) {
+        this.reset();
+      }
     }
   }
 }
@@ -204,7 +208,9 @@ class Asteroid extends Enemy {
     this.image = document.getElementById("asteroid");
     this.frameX = 0;
     this.frameY = Math.floor(Math.random() * 4);
+    this.maxFrame = 7;
     this.lives = 5;
+    this.maxLives = this.lives;
   }
 }
 
