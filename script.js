@@ -130,6 +130,7 @@ class Enemy {
   start() {
     this.free = false;
     this.frameX = 0;
+    this.lives = this.maxLives;
     // this.frameY = Math.floor(Math.random() * 4);
     if (Math.random() < 0.5) {
       this.x = Math.random() * this.game.width;
