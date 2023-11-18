@@ -150,7 +150,9 @@ class Enemy {
   }
   hit(damage) {
     this.lives -= damage;
-    this.frameX = this.maxLives - this.lives;
+    if (this.lives >= 1) {
+      this.frameX++;
+    }
   }
   draw(context) {
     if (!this.free) {
