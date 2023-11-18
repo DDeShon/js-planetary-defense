@@ -145,7 +145,7 @@ class Enemy {
     const aim = this.game.calcAim(this, this.game.planet);
     this.speedX = aim[0];
     this.speedY = aim[1];
-    this.angle = Math.atan2(aim[3], aim[2]);
+    this.angle = Math.atan2(aim[3], aim[2]) + Math.PI * 0.5;
   }
   reset() {
     this.free = true;
