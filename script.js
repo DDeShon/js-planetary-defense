@@ -263,7 +263,7 @@ class Game {
     this.createEnemyPool();
     this.enemyPool[0].start();
     this.enemyTimer = 0;
-    this.enemyInterval = 1700;
+    this.enemyInterval = 4500;
 
     this.spriteUpdate = false;
     this.spriteTimer = 0;
