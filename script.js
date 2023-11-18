@@ -347,7 +347,8 @@ class Game {
 
   createEnemyPool() {
     for (let i = 0; i < this.numberOfEnemies; i++) {
-      this.enemyPool.push(new Asteroid(this));
+      // this.enemyPool.push(new Asteroid(this));
+      this.enemyPool.push(new Lobstermorph(this));
     }
   }
 
