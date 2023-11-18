@@ -182,12 +182,14 @@ class Enemy {
 
       // check collision between enemy and planet
       if (this.game.checkCollision(this, this.game.planet)) {
-        this.reset();
+        this.lives = 0;
+        this.speedX = 0;
+        this.speedY = 0;
       }
 
       // check collision between enemy and player
       if (this.game.checkCollision(this, this.game.player)) {
-        this.reset();
+        this.lives = 0;
       }
 
       // check collision between enemy and projectile
