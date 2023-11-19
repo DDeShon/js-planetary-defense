@@ -126,10 +126,12 @@ class Enemy {
     this.speedX = 0;
     this.speedY = 0;
     this.angle = 0;
+    this.collided = false;
     this.free = true;
   }
   start() {
     this.free = false;
+    this.collided = false;
     this.frameX = 0;
     this.lives = this.maxLives;
     // this.frameY = Math.floor(Math.random() * 4);
@@ -191,11 +193,13 @@ class Enemy {
         this.lives = 0;
         this.speedX = 0;
         this.speedY = 0;
+        this.collided = true;
       }
 
       // check collision between enemy and player
       if (this.game.checkCollision(this, this.game.player)) {
         this.lives = 0;
+        this.collided = true;
       }
 
       // check collision between enemy and projectile
@@ -214,7 +218,7 @@ class Enemy {
       if (this.lives < 1 && this.game.spriteUpdate) {
         this.frameX++;
       }
-      if (this.frameX > this.maxFrame) {
+      if (this.frameX > this.maxFrame && !this.collided) {
         this.reset();
         this.game.score += this.maxLives;
       }
@@ -332,7 +336,7 @@ class Game {
     context.save();
     context.textAlign = "left";
     context.font = "30px Impact";
-    context.fillText("Score", 20, 30);
+    context.fillText("Score: " + this.score, 20, 30);
     context.restore();
   }
 
