@@ -276,6 +276,7 @@ class Game {
     this.spriteTimer = 0;
     this.spriteInterval = 150;
     this.score = 0;
+    this.winningScore = 10;
 
     this.mouse = {
       x: 0,
@@ -331,6 +332,11 @@ class Game {
     } else {
       this.spriteTimer = 0;
       this.spriteUpdate = true;
+    }
+
+    // win/lose condition
+    if (this.score >= this.winningScore) {
+      this.gameOver = true;
     }
   }
 
