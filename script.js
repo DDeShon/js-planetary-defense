@@ -216,6 +216,7 @@ class Enemy {
       }
       if (this.frameX > this.maxFrame) {
         this.reset();
+        this.game.score += this.maxLives;
       }
     }
   }
@@ -268,6 +269,7 @@ class Game {
     this.spriteUpdate = false;
     this.spriteTimer = 0;
     this.spriteInterval = 150;
+    this.score = 0;
 
     this.mouse = {
       x: 0,
@@ -328,6 +330,7 @@ class Game {
 
   drawStatusText(context) {
     context.save();
+    context.textAlign = "left";
     context.font = "30px Impact";
     context.fillText("Score", 20, 30);
     context.restore();
