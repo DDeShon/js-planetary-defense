@@ -325,6 +325,11 @@ class Game {
     }
   }
 
+  drawStatusText(context) {
+    context.font = "30px Impact";
+    context.fillText("Score", 20, 30);
+  }
+
   calcAim(a, b) {
     const distX = a.x - b.x;
     const distY = a.y - b.y;
