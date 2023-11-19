@@ -293,6 +293,7 @@ class Game {
 
   render(context, deltaTime) {
     this.planet.draw(context);
+    this.drawStatusText(context);
     this.player.draw(context);
     this.player.update();
     this.projectilePool.forEach((projectile) => {
@@ -326,8 +327,10 @@ class Game {
   }
 
   drawStatusText(context) {
+    context.save();
     context.font = "30px Impact";
     context.fillText("Score", 20, 30);
+    context.restore();
   }
 
   calcAim(a, b) {
