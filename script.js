@@ -348,6 +348,13 @@ class Game {
     context.restore();
     if (this.gameOver) {
       context.textAlign = "center";
+      let message1;
+      let message2;
+      if (this.score >= this.winningScore) {
+        message1 = "You win!";
+        message2 = "Your score is " + this.score + "!";
+      }
+      context.font = "100px Impact";
     }
   }
 
