@@ -346,6 +346,9 @@ class Game {
     context.font = "30px Impact";
     context.fillText("Score: " + this.score, 20, 30);
     context.restore();
+    if (this.gameOver) {
+      context.textAlign = "center";
+    }
   }
 
   calcAim(a, b) {
