@@ -355,6 +355,9 @@ class Game {
         message2 = "Your score is " + this.score + "!";
       }
       context.font = "100px Impact";
+      context.fillText(message1, this.width * 0.5, 200);
+      context.font = "50px Impact";
+      context.fillText(message2, this.width * 0.5, 550);
     }
   }
 
