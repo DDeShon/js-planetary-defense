@@ -315,13 +315,15 @@ class Game {
     });
 
     // periodically activate an enemy
-    if (this.enemyTimer < this.enemyInterval) {
-      this.enemyTimer += deltaTime;
-    } else {
-      this.enemyTimer = 0;
-      const enemy = this.getEnemy();
-      if (enemy) {
-        enemy.start();
+    if (!this.gameOver) {
+      if (this.enemyTimer < this.enemyInterval) {
+        this.enemyTimer += deltaTime;
+      } else {
+        this.enemyTimer = 0;
+        const enemy = this.getEnemy();
+        if (enemy) {
+          enemy.start();
+        }
       }
     }
 
