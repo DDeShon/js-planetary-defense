@@ -189,7 +189,7 @@ class Enemy {
       this.y += this.speedY;
 
       // check collision between enemy and planet
-      if (this.game.checkCollision(this, this.game.planet)) {
+      if (this.game.checkCollision(this, this.game.planet) && this.lives >= 1) {
         this.lives = 0;
         this.speedX = 0;
         this.speedY = 0;
@@ -198,7 +198,7 @@ class Enemy {
       }
 
       // check collision between enemy and player
-      if (this.game.checkCollision(this, this.game.player)) {
+      if (this.game.checkCollision(this, this.game.player) && this.lives >= 1) {
         this.lives = 0;
         this.collided = true;
         this.game.lives--;
