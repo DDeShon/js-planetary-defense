@@ -194,12 +194,14 @@ class Enemy {
         this.speedX = 0;
         this.speedY = 0;
         this.collided = true;
+        this.game.lives--;
       }
 
       // check collision between enemy and player
       if (this.game.checkCollision(this, this.game.player)) {
         this.lives = 0;
         this.collided = true;
+        this.game.lives--;
       }
 
       // check collision between enemy and projectile
