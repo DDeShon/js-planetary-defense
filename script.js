@@ -277,6 +277,7 @@ class Game {
     this.spriteInterval = 150;
     this.score = 0;
     this.winningScore = 10;
+    this.lives = 5;
 
     this.mouse = {
       x: 0,
@@ -347,7 +348,6 @@ class Game {
     context.textAlign = "left";
     context.font = "30px Impact";
     context.fillText("Score: " + this.score, 20, 30);
-    context.restore();
     if (this.gameOver) {
       context.textAlign = "center";
       let message1;
@@ -361,6 +361,7 @@ class Game {
       context.font = "50px Impact";
       context.fillText(message2, this.width * 0.5, 550);
     }
+    context.restore();
   }
 
   calcAim(a, b) {
