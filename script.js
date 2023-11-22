@@ -340,7 +340,7 @@ class Game {
     }
 
     // win/lose condition
-    if (this.score >= this.winningScore) {
+    if (this.score >= this.winningScore || this.lives < 1) {
       this.gameOver = true;
     }
   }
