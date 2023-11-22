@@ -125,6 +125,7 @@ class Enemy {
     this.height = this.radius * 2;
     this.speedX = 0;
     this.speedY = 0;
+    this.speedModifier = Math.random() * 0.5 + 0.1;
     this.angle = 0;
     this.collided = false;
     this.free = true;
@@ -145,8 +146,8 @@ class Enemy {
       this.y = Math.random() * this.game.height;
     }
     const aim = this.game.calcAim(this, this.game.planet);
-    this.speedX = aim[0];
-    this.speedY = aim[1];
+    this.speedX = aim[0] * this.speedModifier;
+    this.speedY = aim[1] * this.speedModifier;
     this.angle = Math.atan2(aim[3], aim[2]) + Math.PI * 0.5;
   }
   reset() {
@@ -272,7 +273,7 @@ class Game {
     this.createEnemyPool();
     this.enemyPool[0].start();
     this.enemyTimer = 0;
-    this.enemyInterval = 4500;
+    this.enemyInterval = 1500;
 
     this.spriteUpdate = false;
     this.spriteTimer = 0;
