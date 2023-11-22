@@ -360,6 +360,9 @@ class Game {
       if (this.score >= this.winningScore) {
         message1 = "You win!";
         message2 = "Your score is " + this.score + "!";
+      } else {
+        message1 = "You lose!";
+        message2 = "Try again!";
       }
       context.font = "100px Impact";
       context.fillText(message1, this.width * 0.5, 200);
