@@ -261,7 +261,7 @@ class Game {
     this.height = this.canvas.height;
     this.planet = new Planet(this);
     this.player = new Player(this);
-    this.debug = true;
+    this.debug = false;
 
     this.projectilePool = [];
     this.numberOfProjectiles = 30;
@@ -278,7 +278,7 @@ class Game {
     this.spriteTimer = 0;
     this.spriteInterval = 150;
     this.score = 0;
-    this.winningScore = 10;
+    this.winningScore = 100;
     this.lives = 5;
 
     this.mouse = {
@@ -405,8 +405,12 @@ class Game {
 
   createEnemyPool() {
     for (let i = 0; i < this.numberOfEnemies; i++) {
-      // this.enemyPool.push(new Asteroid(this));
-      this.enemyPool.push(new Lobstermorph(this));
+      let randomNumber = Math.random();
+      if (randomNumber > 0.25) {
+        this.enemyPool.push(new Asteroid(this));
+      } else {
+        this.enemyPool.push(new Lobstermorph(this));
+      }
     }
   }
 
