@@ -421,7 +421,7 @@ class Game {
       let randomNumber = Math.random();
       if (randomNumber < 0.25) {
         this.enemyPool.push(new Asteroid(this));
-      } else if (randomNumber > 0.5) {
+      } else if (randomNumber < 0.5) {
         this.enemyPool.push(new Beetlemorph(this));
       } else {
         this.enemyPool.push(new Lobstermorph(this));
