@@ -255,7 +255,7 @@ class Lobstermorph extends Enemy {
   }
 }
 
-class beetlemorph extends Enemy {
+class Beetlemorph extends Enemy {
   constructor(game) {
     super(game);
     this.image = document.getElementById("beetlemorph");
@@ -421,6 +421,8 @@ class Game {
       let randomNumber = Math.random();
       if (randomNumber > 0.25) {
         this.enemyPool.push(new Asteroid(this));
+      } else if (randomNumber > 0.5) {
+        this.enemyPool.push(new Beetlemorph(this));
       } else {
         this.enemyPool.push(new Lobstermorph(this));
       }
