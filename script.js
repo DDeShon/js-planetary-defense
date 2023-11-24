@@ -261,8 +261,8 @@ class beetlemorph extends Enemy {
     this.image = document.getElementById("beetlemorph");
     this.frameX = 0;
     this.frameY = Math.floor(Math.random() * 4);
-    this.maxFrame = 14;
-    this.lives = 8;
+    this.maxFrame = 3;
+    this.lives = 1;
     this.maxLives = this.lives;
   }
 }
