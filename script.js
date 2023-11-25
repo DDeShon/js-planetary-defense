@@ -223,7 +223,7 @@ class Enemy {
       }
       if (this.frameX > this.maxFrame) {
         this.reset();
-        if (!this.collided) {
+        if (!this.collided && !this.game.gameOver) {
           this.game.score += this.maxLives;
         }
       }
@@ -297,7 +297,7 @@ class Game {
     this.createEnemyPool();
     this.enemyPool[0].start();
     this.enemyTimer = 0;
-    this.enemyInterval = 800;
+    this.enemyInterval = 1200;
 
     this.spriteUpdate = false;
     this.spriteTimer = 0;
