@@ -435,6 +435,8 @@ class Game {
         this.enemyPool.push(new Asteroid(this));
       } else if (randomNumber < 0.5) {
         this.enemyPool.push(new Beetlemorph(this));
+      } else if (randomNumber < 0.75) {
+        this.enemyPool.push(new Rhinomorph(this));
       } else {
         this.enemyPool.push(new Lobstermorph(this));
       }
