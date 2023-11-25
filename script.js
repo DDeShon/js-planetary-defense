@@ -267,6 +267,18 @@ class Beetlemorph extends Enemy {
   }
 }
 
+class Rhinomorph extends Enemy {
+  constructor(game) {
+    super(game);
+    this.image = document.getElementById("rhinomorph");
+    this.frameX = 0;
+    this.frameY = Math.floor(Math.random() * 4);
+    this.maxFrame = 5;
+    this.lives = 5;
+    this.maxLives = this.lives;
+  }
+}
+
 class Game {
   constructor(canvas) {
     this.canvas = canvas;
