@@ -304,7 +304,7 @@ class Game {
     this.spriteInterval = 150;
     this.score = 0;
     this.winningScore = 200;
-    this.lives = 10;
+    this.lives = 5;
 
     this.mouse = {
       x: 0,
